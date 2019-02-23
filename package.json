@@ -3,6 +3,7 @@
 	"displayName": "Robot Framework Helper",
 	"description": "",
 	"version": "0.0.1",
+	"publisher": "allyusd",
 	"engines": {
 		"vscode": "^1.31.0"
 	},
@@ -38,5 +39,9 @@
 		"tslint": "^5.12.1",
 		"@types/node": "^10.12.21",
 		"@types/mocha": "^2.2.42"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/allyusd/vscode-robot-framework-helper"
 	}
 }
