@@ -10,16 +10,20 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:extension.helloWorld"
+		"onCommand:rfhelp.replaceClipboardTextIncludeUnderscoreAndSpace"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "extension.helloWorld",
+				"command": "rfhelp.replaceClipboardTextIncludeUnderscoreAndSpace",
 				"title": "Hello World"
 			}
-		]
+		],
+		"keybindings": [{
+			"command": "rfhelp.replaceClipboardTextIncludeUnderscoreAndSpace",
+			"key": "ctrl+shift+f12"
+		}]
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
