@@ -11,7 +11,8 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:rfhelper.replaceClipboardTextIncludeUnderscoreAndSpace"
+		"onCommand:rfhelper.replaceClipboardTextIncludeUnderscoreAndSpace",
+		"onCommand:rfhelper.changeSelectTextToRFCase"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
@@ -19,12 +20,23 @@
 			{
 				"command": "rfhelper.replaceClipboardTextIncludeUnderscoreAndSpace",
 				"title": "Replace Clipboard Text Include Underscore And Space"
+			},
+			{
+				"command": "rfhelper.changeSelectTextToRFCase",
+				"title": "Change Select Text To Robot Framework Case"
 			}
 		],
-		"keybindings": [{
-			"command": "rfhelper.replaceClipboardTextIncludeUnderscoreAndSpace",
-			"key": "ctrl+shift+f12"
-		}]
+		"keybindings": [
+			{
+				"command": "rfhelper.replaceClipboardTextIncludeUnderscoreAndSpace",
+				"key": "ctrl+shift+f12"
+			},
+			{
+				"command": "rfhelper.changeSelectTextToRFCase",
+				"key": "shift+c",
+				"when": "textInputFocus && !editorReadonly"
+			}
+		]
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
