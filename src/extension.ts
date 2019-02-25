@@ -23,14 +23,20 @@ export function deactivate() {}
 
 function replaceClipboardTextIncludeUnderscoreAndSpace() {
 	vscode.env.clipboard.readText().then((text)=>{
-		let before: string = text;
-		if (text.includes(' '))	{
-			text = text.replace(/ /g, '_');
-		} else if (text.includes('_')) {
-			text = text.replace(/_/g, ' ');
-		}
-		let after: string = text;
+		text = replaceUnderscoreAndSpace(text);
 		vscode.env.clipboard.writeText(text);
-		console.log('change: ' + before + ' => ' + after);
 	});
+}
+
+function replaceUnderscoreAndSpace(text: string) {
+	let before: string = text;
+	if (text.includes(' ')) {
+		text = text.replace(/ /g, '_');
+	}
+	else if (text.includes('_')) {
+		text = text.replace(/_/g, ' ');
+	}
+	let after: string = text;
+	console.log('change: ' + before + ' => ' + after);
+	return text;
 }
