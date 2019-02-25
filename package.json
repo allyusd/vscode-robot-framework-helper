@@ -29,7 +29,7 @@
 		"keybindings": [
 			{
 				"command": "rfhelper.replaceClipboardTextIncludeUnderscoreAndSpace",
-				"key": "ctrl+shift+f12"
+				"key": "ctrl+shift+f11"
 			},
 			{
 				"command": "rfhelper.changeSelectTextToRFCase",
