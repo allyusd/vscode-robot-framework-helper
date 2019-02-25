@@ -11,18 +11,18 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:rfhelp.replaceClipboardTextIncludeUnderscoreAndSpace"
+		"onCommand:rfhelper.replaceClipboardTextIncludeUnderscoreAndSpace"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "rfhelp.replaceClipboardTextIncludeUnderscoreAndSpace",
-				"title": "Hello World"
+				"command": "rfhelper.replaceClipboardTextIncludeUnderscoreAndSpace",
+				"title": "Replace Clipboard Text Include Underscore And Space"
 			}
 		],
 		"keybindings": [{
-			"command": "rfhelp.replaceClipboardTextIncludeUnderscoreAndSpace",
+			"command": "rfhelper.replaceClipboardTextIncludeUnderscoreAndSpace",
 			"key": "ctrl+shift+f12"
 		}]
 	},
