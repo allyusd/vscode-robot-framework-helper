@@ -13,11 +13,7 @@ export function activate(context: vscode.ExtensionContext) {
 	// The command has been defined in the package.json file
 	// Now provide the implementation of the command with registerCommand
 	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('rfhelper.replaceClipboardTextIncludeUnderscoreAndSpace', () => {
-		// The code you place here will be executed every time your command is executed
-
-		replaceClipboardTextIncludeUnderscoreAndSpace();
-	});
+	let disposable = vscode.commands.registerCommand('rfhelper.replaceClipboardTextIncludeUnderscoreAndSpace', replaceClipboardTextIncludeUnderscoreAndSpace);
 
 	context.subscriptions.push(disposable);
 }
@@ -27,13 +23,14 @@ export function deactivate() {}
 
 function replaceClipboardTextIncludeUnderscoreAndSpace() {
 	vscode.env.clipboard.readText().then((text)=>{
-		console.log('before: ' + text);
+		let before: string = text;
 		if (text.includes(' '))	{
 			text = text.replace(/ /g, '_');
 		} else if (text.includes('_')) {
 			text = text.replace(/_/g, ' ');
 		}
-		console.log('after: ' + text);
+		let after: string = text;
 		vscode.env.clipboard.writeText(text);
+		console.log('change: ' + before + ' => ' + after);
 	});
 }
