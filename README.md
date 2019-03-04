@@ -2,26 +2,26 @@
 
 Robot Framework Helper
 
+**Warning!!! Unstable**
+
 ## Features
 
-### Replace clipboard text include underscore and space
-Use Ctrl + Shift + F11 will change clipboard text
-
-When text include space will replace all space to Underscore
-When text include Underscore will replace all Underscore to space
+### Copy Select Text And Switch Robot Framework Or Python Case
+Use Ctrl + Shift + F11 will copy select text to clipboard and switch Robot Framework Or Python Case
 
 #### Example:
-Should Be Equal => Should_Be_Equal
+Should Be Equal => should_be_equal
 
-Should_Be_Equal => Should Be Equal
-
-### Change Select Text To Robot Framework Case
-Use Shift + C change select text to robot framework case
-
-#### Example:
 should_be_equal => Should Be Equal
 
 ## Release Notes
+
+### 0.0.3 - 2019-03-04
+### Added
+ - Copy Select Text And Switch Robot Framework Or Python Case (Ctrl + Shift + F11)
+### Remove
+ - **BREAKING** Replace clipboard text include underscore and space
+ - **BREAKING** Change Select Text To Robot Framework Case
 
 ### 0.0.2 - 2019-02-25
 ### Added
