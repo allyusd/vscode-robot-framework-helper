@@ -2,7 +2,7 @@
 	"name": "robot-framework-helper",
 	"displayName": "Robot Framework Helper",
 	"description": "",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"publisher": "allyusd",
 	"engines": {
 		"vscode": "^1.31.0"
@@ -11,21 +11,11 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:rfhelper.replaceClipboardTextIncludeUnderscoreAndSpace",
-		"onCommand:rfhelper.changeSelectTextToRFCase",
 		"onCommand:rfhelper.copySelectTextAndSwitchRFOrPyCase"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
-			{
-				"command": "rfhelper.replaceClipboardTextIncludeUnderscoreAndSpace",
-				"title": "Replace Clipboard Text Include Underscore And Space"
-			},
-			{
-				"command": "rfhelper.changeSelectTextToRFCase",
-				"title": "Change Select Text To Robot Framework Case"
-			},
 			{
 				"command": "rfhelper.copySelectTextAndSwitchRFOrPyCase",
 				"title": "Copy Select Text And Switch Robot Framework Or Python Case"

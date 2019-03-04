@@ -13,39 +13,13 @@ export function activate(context: vscode.ExtensionContext) {
 	// The command has been defined in the package.json file
 	// Now provide the implementation of the command with registerCommand
 	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('rfhelper.replaceClipboardTextIncludeUnderscoreAndSpace', replaceClipboardTextIncludeUnderscoreAndSpace);
-	let disposable2 = vscode.commands.registerCommand('rfhelper.changeSelectTextToRFCase', changeSelectTextToRFCase);
-	let disposable3 = vscode.commands.registerCommand('rfhelper.copySelectTextAndSwitchRFOrPyCase', copySelectTextAndSwitchRFOrPyCase);
+	let disposable = vscode.commands.registerCommand('rfhelper.copySelectTextAndSwitchRFOrPyCase', copySelectTextAndSwitchRFOrPyCase);
 
 	context.subscriptions.push(disposable);
-	context.subscriptions.push(disposable2);
 }
 
 // this method is called when your extension is deactivated
 export function deactivate() {}
-
-function replaceClipboardTextIncludeUnderscoreAndSpace() {
-	vscode.env.clipboard.readText().then((text)=>{
-		text = replaceUnderscoreAndSpace(text);
-		vscode.env.clipboard.writeText(text);
-	});
-}
-
-function changeSelectTextToRFCase() {
-	var editor = vscode.window.activeTextEditor;
-	if (!editor) {
-		console.log('No open text editor');
-		return;
-	}
-
-	var selection = editor.selection;
-	var text = editor.document.getText(selection);
-	text = changeTextToRFCase(text);
-	editor.edit(function(editBuilder)
-	{
-		editBuilder.replace(selection, text);
-	});
-}
 
 function copySelectTextAndSwitchRFOrPyCase() {
 	var editor = vscode.window.activeTextEditor;
@@ -69,19 +43,6 @@ function copySelectTextAndSwitchRFOrPyCase() {
 	}
 
 	vscode.env.clipboard.writeText(text);
-}
-
-function replaceUnderscoreAndSpace(text: string) {
-	let before: string = text;
-	if (text.includes(' ')) {
-		text = text.replace(/ /g, '_');
-	}
-	else if (text.includes('_')) {
-		text = text.replace(/_/g, ' ');
-	}
-	let after: string = text;
-	console.log('change: ' + before + ' => ' + after);
-	return text;
 }
 
 function changeTextToRFCase(text: string) {
