@@ -12,7 +12,8 @@
 	],
 	"activationEvents": [
 		"onCommand:rfhelper.replaceClipboardTextIncludeUnderscoreAndSpace",
-		"onCommand:rfhelper.changeSelectTextToRFCase"
+		"onCommand:rfhelper.changeSelectTextToRFCase",
+		"onCommand:rfhelper.copySelectTextAndSwitchRFOrPyCase"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
@@ -24,17 +25,16 @@
 			{
 				"command": "rfhelper.changeSelectTextToRFCase",
 				"title": "Change Select Text To Robot Framework Case"
+			},
+			{
+				"command": "rfhelper.copySelectTextAndSwitchRFOrPyCase",
+				"title": "Copy Select Text And Switch Robot Framework Or Python Case"
 			}
 		],
 		"keybindings": [
 			{
-				"command": "rfhelper.replaceClipboardTextIncludeUnderscoreAndSpace",
+				"command": "rfhelper.copySelectTextAndSwitchRFOrPyCase",
 				"key": "ctrl+shift+f11"
-			},
-			{
-				"command": "rfhelper.changeSelectTextToRFCase",
-				"key": "shift+c",
-				"when": "textInputFocus && !editorReadonly"
 			}
 		]
 	},

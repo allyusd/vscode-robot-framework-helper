@@ -15,6 +15,7 @@ export function activate(context: vscode.ExtensionContext) {
 	// The commandId parameter must match the command field in package.json
 	let disposable = vscode.commands.registerCommand('rfhelper.replaceClipboardTextIncludeUnderscoreAndSpace', replaceClipboardTextIncludeUnderscoreAndSpace);
 	let disposable2 = vscode.commands.registerCommand('rfhelper.changeSelectTextToRFCase', changeSelectTextToRFCase);
+	let disposable3 = vscode.commands.registerCommand('rfhelper.copySelectTextAndSwitchRFOrPyCase', copySelectTextAndSwitchRFOrPyCase);
 
 	context.subscriptions.push(disposable);
 	context.subscriptions.push(disposable2);
@@ -44,6 +45,30 @@ function changeSelectTextToRFCase() {
 	{
 		editBuilder.replace(selection, text);
 	});
+}
+
+function copySelectTextAndSwitchRFOrPyCase() {
+	var editor = vscode.window.activeTextEditor;
+	if (!editor) {
+		console.log('No open text editor');
+		return;
+	}
+
+	var selection = editor.selection;
+	var text = editor.document.getText(selection);
+
+	if (text === "") {
+		console.log('empty text');
+		return;
+	}
+
+	if (isLower(text.charAt(0))) {
+		text = changeTextToRFCase(text);
+	} else {
+		text = changeTextToPyCase(text);
+	}
+
+	vscode.env.clipboard.writeText(text);
 }
 
 function replaceUnderscoreAndSpace(text: string) {
@@ -76,6 +101,21 @@ function changeTextToRFCase(text: string) {
 	return text;
 }
 
+function changeTextToPyCase(text: string) {
+	let before: string = text;
+	let list: string[];
+
+	text = text.replace(/ /g, '_').toLowerCase();
+
+	let after: string = text;
+	console.log('change: ' + before + ' => ' + after);
+	return text;
+}
+
 function capitalizeFirstLetter(text: string) {
 	return text.charAt(0).toUpperCase() + text.slice(1);
+}
+
+function isLower(text: string) {
+	return text === text.toLowerCase()
 }
